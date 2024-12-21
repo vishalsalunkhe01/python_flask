@@ -1,0 +1,65 @@
+
+body {
+
+    background-image: url('/static/images/dentist.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    z-index: 1;  /* Ensure content is above the background */
+    color: #07090d; /* White text to contrast against the background */
+}
+
+header {
+    background-color: #333;
+    color: rgb(15, 1, 1);
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: rgb(22, 11, 11);
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+form input, form button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

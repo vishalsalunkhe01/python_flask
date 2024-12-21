@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>Patient Records</h1>
+        
+        <!-- Search form -->
+        <form method="GET" action="{{ url_for('records_view') }}">
+            <input type="text" name="search" placeholder="Search by patient name or contact..." value="{{ request.args.get('search') }}">
+            <button type="submit">Search</button>
+        </form>
+
+        <!-- Records table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Contact</th>
+                    <th>Appointment Time</th>
+                    <th>Address</th>
+                    <th>Appointment For</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                    <tr>
+                        <td>{{ record['patient_name'] }}</td>
+                        <td>{{ record['patient_contact'] }}</td>
+                        <td>{{ record['appointment_time'].strftime('%Y-%m-%d %H:%M') }}</td>
+                        <td>{{ record['address'] }}</td>
+                        <td>{{ record['appointment_for'] }}</td>
+                        <td>{{ record['status'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

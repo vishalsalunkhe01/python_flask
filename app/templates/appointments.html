@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>Appointments</h1>
+
+        <!-- Display day-wise appointments -->
+        {% for day in sorted_days %}
+            <h2>{{ day.strftime('%Y-%m-%d') }}</h2>
+            <ul>
+                {% for appointment in appointments_by_day[day] %}
+                    <li>
+                        <strong>{{ appointment['patient_name'] }}</strong> - {{ appointment['appointment_time'].strftime('%H:%M') }}
+                        <br>Contact: {{ appointment['patient_contact'] }} | Address: {{ appointment['address'] }} | Appointment For: {{ appointment['appointment_for'] }} | Status: {{ appointment['status'] }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+{% endblock %}
